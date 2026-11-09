@@ -16,7 +16,6 @@
     vesktop
     btop
     fastfetch
-    home-manager
     inputs.helium.packages.${system}.default
   ];
 

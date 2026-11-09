@@ -92,7 +92,7 @@
     isNormalUser = true;
     description = "callie";
     extraGroups = ["networkmanager" "wheel"];
-    shell = pkgs.zsh;
+    #shell = pkgs.zsh;
     packages = with pkgs; [
       kdePackages.kate
       #  thunderbird
@@ -101,7 +101,7 @@
 
   programs = {
     firefox.enable = true;
-    zsh = {
+    /*zsh = {
       enable = true;
       ohMyZsh = {
         enable = true;
@@ -111,7 +111,7 @@
         ];
         theme = "fishy";
       };
-    };
+    };*/
     nh = {
       enable = true;
       clean.enable = true;
