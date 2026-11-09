@@ -39,6 +39,17 @@
         theme = "fishy";
       };
     };
+    thunderbird = {
+      enable = true;
+      profiles = {
+        default = {
+          isDefault = true;
+          settings = {
+            "general.useragent.override" = "";
+          };
+        };
+      };
+    };
   };
   home.stateVersion = "26.05";
 }
