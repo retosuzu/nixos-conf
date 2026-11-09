@@ -8,6 +8,7 @@
   home.homeDirectory = "/home/callie";
 
   home.packages = with pkgs; [
+    zsh
     vim
     wget
     sbctl
