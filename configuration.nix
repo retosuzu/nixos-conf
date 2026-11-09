@@ -123,7 +123,7 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  environment.systemPackages = with pkgs; [
+  /*environment.systemPackages = with pkgs; [
     vim
     wget
     sbctl
@@ -133,7 +133,7 @@
     fastfetch
     home-manager
     inputs.helium.packages.${system}.default
-  ];
+  ];*/
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
