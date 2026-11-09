@@ -1,24 +1,26 @@
-{ config, pkgs, ... }:
-
 {
-    home.username = "callie";
-    home.homeDirectory = "/home/callie";
+  config,
+  pkgs,
+  ...
+}: {
+  home.username = "callie";
+  home.homeDirectory = "/home/callie";
 
-    home.packages = with pkgs; [
-        btop
-        git
-        zsh
-    ];
+  home.packages = with pkgs; [
+    btop
+    git
+    zsh
+  ];
 
-    programs = {
-        git = {
-            enable = true;
-            settings.user = {
-                name = "retosuzu";
-                email = "callie@retosuzu.org";
-            };
+  programs = {
+    git = {
+      enable = true;
+      settings.user = {
+        name = "retosuzu";
+        email = "callie@retosuzu.org";
+      };
     };
-        home-manager.enable = true;
-};
-    home.stateVersion = "26.05";
+    home-manager.enable = true;
+  };
+  home.stateVersion = "26.05";
 }

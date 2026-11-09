@@ -1,16 +1,17 @@
-{ config, pkgs, inputs,  ... }:
-
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-    ];
-
+  config,
+  pkgs,
+  inputs,
+  ...
+}: {
+  imports = [
+    ./hardware-configuration.nix
+  ];
 
   boot = {
     loader = {
-        efi.canTouchEfiVariables = true;
-        limine = {
+      efi.canTouchEfiVariables = true;
+      limine = {
         enable = true;
         secureBoot.enable = true;
         maxGenerations = 10;
@@ -21,31 +22,30 @@
           /Windows
             protocol: efi
             path: uuid(b15c0e58-454d-4a6f-991d-fec298f0155f):/EFI/Microsoft/Boot/bootmgfw.efi
-          '';
-        };
+        '';
       };
     };
-
+  };
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-   hardware = {
-       graphics.enable = true;
-       nvidia = {
-         modesetting.enable = false;
-         powerManagement.enable = false;
-         powerManagement.finegrained = false;
-         open = false;
-         nvidiaSettings = true;
-         package = config.boot.kernelPackages.nvidiaPackages.latest;
-        };
+  hardware = {
+    graphics.enable = true;
+    nvidia = {
+      modesetting.enable = false;
+      powerManagement.enable = false;
+      powerManagement.finegrained = false;
+      open = false;
+      nvidiaSettings = true;
+      package = config.boot.kernelPackages.nvidiaPackages.latest;
     };
+  };
 
   nix.settings = {
-      experimental-features = [ "nix-command" "flakes" "pipe-operators"];
-      substituters = [ "https://ezkea.cachix.org" ];
-      trusted-public-keys = [ "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI=" ];
-      trusted-users = ["root" "@wheel"];
+    experimental-features = ["nix-command" "flakes" "pipe-operators"];
+    substituters = ["https://ezkea.cachix.org"];
+    trusted-public-keys = ["ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="];
+    trusted-users = ["root" "@wheel"];
   };
   networking.hostName = "suuzu"; # Define your hostname.
 
@@ -91,51 +91,49 @@
   users.users."callie" = {
     isNormalUser = true;
     description = "callie";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     shell = pkgs.zsh;
     packages = with pkgs; [
       kdePackages.kate
-    #  thunderbird
+      #  thunderbird
     ];
   };
 
-
-  programs ={
+  programs = {
     firefox.enable = true;
     zsh = {
       enable = true;
       ohMyZsh = {
         enable = true;
         plugins = [
-        "git"
-        "z"
+          "git"
+          "z"
         ];
         theme = "fishy";
-        };
       };
+    };
     nh = {
       enable = true;
       clean.enable = true;
       clean.extraArgs = "--keep-since 4d --keep 3";
       flake = "/home/callie/nix-config";
-      };
-    steam.enable = true;
     };
-
+    steam.enable = true;
+  };
 
   nixpkgs.config.allowUnfree = true;
 
-   environment.systemPackages = with pkgs; [
-     vim
-     wget
-     sbctl
-     git
-     vesktop
-     btop
-     fastfetch
-     home-manager
-     inputs.helium.packages.${system}.default
-   ];
+  environment.systemPackages = with pkgs; [
+    vim
+    wget
+    sbctl
+    git
+    vesktop
+    btop
+    fastfetch
+    home-manager
+    inputs.helium.packages.${system}.default
+  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -179,5 +177,4 @@
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "26.05"; # Did you read the comment?
-
 }
