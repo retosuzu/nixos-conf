@@ -7,6 +7,8 @@
   home.username = "callie";
   home.homeDirectory = "/home/callie";
 
+  nixpkgs.config.allowUnfree = true;
+
   home.packages = with pkgs; [
     zsh
     vim
@@ -16,6 +18,7 @@
     vesktop
     btop
     fastfetch
+    wootility
     inputs.helium.packages.${system}.default
   ];
 
