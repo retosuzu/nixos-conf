@@ -51,6 +51,8 @@
 
   networking.networkmanager.enable = true;
 
+  networking.firewall.checkReversePath = false;
+
   time.timeZone = "Europe/London";
 
   i18n.defaultLocale = "en_GB.UTF-8";

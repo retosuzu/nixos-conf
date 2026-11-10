@@ -19,6 +19,8 @@
     fastfetch
     wootility
     osu-lazer-bin
+    wireguard-tools
+    proton-vpn
     inputs.helium.packages.${system}.default
   ];
 
