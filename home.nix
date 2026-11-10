@@ -21,6 +21,7 @@
     osu-lazer-bin
     wireguard-tools
     proton-vpn
+    yt-dlp
     inputs.helium.packages.${system}.default
   ];
 
