@@ -15,7 +15,6 @@
     wget
     sbctl
     git
-    vesktop
     btop
     fastfetch
     wootility
@@ -53,6 +52,10 @@
           };
         };
       };
+    };
+    vesktop= {
+      enable = true;
+      vencord.useSystem = false;
     };
   };
   home.stateVersion = "26.05";
