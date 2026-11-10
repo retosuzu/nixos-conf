@@ -19,6 +19,7 @@
     btop
     fastfetch
     wootility
+    osu-lazer-bin
     inputs.helium.packages.${system}.default
   ];
 
