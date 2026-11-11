@@ -9,6 +9,19 @@
   ];
 
   boot = {
+    consoleLogLevel = 3;
+    plymouth = {
+      enable = true;
+      logo = ./plymouth.png;
+    };
+    # silent boot
+    kernelParams = [
+      "quiet"
+      "splash"
+      "boot.shell_on_fail"
+      "udev.log_priority=3"
+      "rd.systemd.show_status=auto"
+    ];
     loader = {
       efi.canTouchEfiVariables = true;
       limine = {

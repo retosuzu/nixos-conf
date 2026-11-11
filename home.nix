@@ -26,6 +26,8 @@
   ];
 
   programs = {
+    ghostty.enable = true;
+    home-manager.enable = true;
     git = {
       enable = true;
       settings.user = {
@@ -33,7 +35,6 @@
         email = "callie@retosuzu.org";
       };
     };
-    home-manager.enable = true;
     zsh = {
       enable = true;
       oh-my-zsh = {
@@ -56,7 +57,7 @@
         };
       };
     };
-    vesktop= {
+    vesktop = {
       enable = true;
       vencord.useSystem = false;
     };
