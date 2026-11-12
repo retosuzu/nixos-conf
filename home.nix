@@ -16,7 +16,6 @@
     sbctl
     git
     btop
-    fastfetch
     wootility
     osu-lazer-bin
     wireguard-tools
@@ -28,6 +27,7 @@
   programs = {
     ghostty.enable = true;
     home-manager.enable = true;
+    fastfetch.enable = true;
     git = {
       enable = true;
       settings.user = {
