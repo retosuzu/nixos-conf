@@ -62,11 +62,14 @@
 
   nix.settings = {
     experimental-features = ["nix-command" "flakes" "pipe-operators"];
-    substituters = ["https://ezkea.cachix.org"];
-    trusted-public-keys = ["ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="];
+    substituters = ["https://ezkea.cachix.org" "https://hyprland.cachix.org"];
+    trusted-public-keys = [
+    "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
+    "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+    ];
     trusted-users = ["root" "@wheel"];
   };
-  networking.hostName = "suuzu"; # Define your hostname.
+  networking.hostName = "suuzu";
 
   networking.networkmanager.enable = true;
 
@@ -145,6 +148,13 @@
 
   programs = {
     firefox.enable = true;
+    steam.enable = true;
+    hyprland = {
+      enable = true;
+      package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+      portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+      xwayland.enable = true;
+    };
     zsh = {
       enable = true;
       ohMyZsh = {
@@ -162,7 +172,6 @@
       clean.extraArgs = "--keep-since 30d --keep 10";
       flake = "/home/callie/nix-config";
     };
-    steam.enable = true;
   };
 
   nixpkgs.config.allowUnfree = true;
