@@ -22,6 +22,12 @@
       "udev.log_priority=3"
       "rd.systemd.show_status=auto"
     ];
+    initrd.kernelModules = [
+      "nvidia"
+      "nvidia_modeset"
+      "nvidia_uvm"
+      "nvidia_drm"
+    ];
     loader = {
       efi.canTouchEfiVariables = true;
       limine = {
@@ -45,7 +51,7 @@
   hardware = {
     graphics.enable = true;
     nvidia = {
-      modesetting.enable = false;
+      modesetting.enable = true;
       powerManagement.enable = false;
       powerManagement.finegrained = false;
       open = false;
