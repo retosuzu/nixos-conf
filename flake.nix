@@ -18,6 +18,9 @@
     hyprland = {
       url = "github:hyprwm/Hyprland";
     };
+    noctalia = {
+      url = "github:noctalia-dev/noctalia";
+    };
   };
 
   outputs = {

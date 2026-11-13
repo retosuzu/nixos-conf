@@ -62,10 +62,11 @@
 
   nix.settings = {
     experimental-features = ["nix-command" "flakes" "pipe-operators"];
-    substituters = ["https://ezkea.cachix.org" "https://hyprland.cachix.org"];
+    substituters = ["https://ezkea.cachix.org" "https://hyprland.cachix.org" "https://noctalia.cachix.org"];
     trusted-public-keys = [
-    "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
-    "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+      "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
+      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+      "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
     ];
     trusted-users = ["root" "@wheel"];
   };
