@@ -28,6 +28,9 @@
       "nvidia_uvm"
       "nvidia_drm"
     ];
+    kernelModules = [
+      "ntsync"
+    ];
     loader = {
       efi.canTouchEfiVariables = true;
       limine = {
@@ -148,13 +151,17 @@
   };
 
   programs = {
-    firefox.enable = true;
-    steam.enable = true;
+    steam = {
+      enable = true;
+      protontricks.enable = true;
+      extraCompatPackages = [pkgs.proton-ge-bin pkgs.dwproton-bin];
+    };
     hyprland = {
       enable = true;
       package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
       portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
       xwayland.enable = true;
+      withUWSM = true;
     };
     zsh = {
       enable = true;
