@@ -27,6 +27,8 @@
     grim
     slurp
     wl-clipboard
+    jetbrains.pycharm
+    jetbrains.rust-rover
     inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
@@ -70,6 +72,12 @@
     vesktop = {
       enable = true;
       vencord.useSystem = false;
+    };
+    vscode = {
+      enable = true;
+      profiles.default.extensions = with pkgs.vscode-extensions; [
+        enkia.tokyo-night
+      ];
     };
   };
   home.stateVersion = "26.05";
