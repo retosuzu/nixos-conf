@@ -41,43 +41,17 @@ in {
     settings = {
       bind =
         [
-          {
-            _args = [
-              "Print"
-              (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"${lib.getExe screenshot}\")")
-            ];
-          }
-          {
-            _args = [
-              "SUPER + Return"
-              (lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"ghostty\")")
-            ];
-          }
-          {
-            _args = [
-              "SUPER + mouse:272"
-              (lib.generators.mkLuaInline "hl.dsp.window.drag()")
-              {mouse = true;}
-            ];
-          }
-          {
-            _args = [
-              "SUPER + mouse:273"
-              (lib.generators.mkLuaInline "hl.dsp.window.resize()")
-              {mouse = true;}
-            ];
-          }
-
+          {_args = ["Print"(lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"${lib.getExe screenshot}\")")];}
+          {_args = ["SUPER + Return"(lib.generators.mkLuaInline "hl.dsp.exec_cmd(\"ghostty\")")];}
+          {_args = ["SUPER + mouse:272" (lib.generators.mkLuaInline "hl.dsp.window.drag()") {mouse = true;}];}
+          {_args = ["SUPER + mouse:273" (lib.generators.mkLuaInline "hl.dsp.window.resize()") {mouse = true;}];}
           {_args = ["SUPER + h" (lib.generators.mkLuaInline ''hl.dsp.focus({ direction = "l" })'')];}
           {_args = ["SUPER + j" (lib.generators.mkLuaInline ''hl.dsp.focus({ direction = "d" })'')];}
           {_args = ["SUPER + k" (lib.generators.mkLuaInline ''hl.dsp.focus({ direction = "u" })'')];}
           {_args = ["SUPER + l" (lib.generators.mkLuaInline ''hl.dsp.focus({ direction = "r" })'')];}
-
           {_args = ["SUPER + c" (lib.generators.mkLuaInline "hl.dsp.window.close()")];}
-
           {_args = ["SUPER + S" (lib.generators.mkLuaInline ''hl.dsp.workspace.toggle_special("magic")'')];}
           {_args = ["SUPER + SHIFT + S" (lib.generators.mkLuaInline ''hl.dsp.window.move({ workspace = "special:magic" })'')];}
-
           {_args = ["SUPER + CTRL + h" (lib.generators.mkLuaInline "hl.dsp.window.resize({ x = -20, y = 0, relative = true })")];}
           {_args = ["SUPER + CTRL + j" (lib.generators.mkLuaInline "hl.dsp.window.resize({ x = 0, y = 20, relative = true })")];}
           {_args = ["SUPER + CTRL + k" (lib.generators.mkLuaInline "hl.dsp.window.resize({ x = 0, y = -20, relative = true })")];}
