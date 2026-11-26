@@ -30,6 +30,7 @@
     jetbrains.pycharm
     jetbrains.rust-rover
     mpv
+    prismlauncher
     inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
